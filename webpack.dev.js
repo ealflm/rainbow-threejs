@@ -1,29 +1,25 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
-const webpack = require('webpack');
+const path = require("path");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+const webpack = require("webpack");
 
 module.exports = merge(common, {
-  mode: 'development',
+  mode: "development",
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, "public"),
     hot: true,
     open: true,
-    port: 9000
+    port: 9000,
+    disableHostCheck: true,
+    allowedHosts: "all",
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
-    ]
+    ],
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 });
