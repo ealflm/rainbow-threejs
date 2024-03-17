@@ -26,7 +26,6 @@ module.exports = {
       name: "THREEJS-RAINBOW",
       script: "npm",
       args: "start",
-      interpreter: "/home/ealflm/.nvm/versions/node/v14.21.3/bin/npm",
       instances: RUN_ENV_MAP[argEnv].instances,
       exec_mode: "cluster",
       watch: false,
